@@ -19,8 +19,11 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-  cors({
-    origin: "http://localhost:5173",
+ cors({
+    origin: [
+      "http://localhost:5173",                     // for local dev
+      "https://snappy-chat-application-roan.vercel.app"   // production frontend
+    ],
     credentials: true,
   })
 );
